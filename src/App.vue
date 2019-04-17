@@ -14,6 +14,9 @@ export default {
 html, body, #app, .app-wrapper {
   height: 100%
 }
+body {
+  margin: auto
+}
 .el-aside {
   background-color: #304156;
 }
