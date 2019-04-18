@@ -11,6 +11,11 @@ import table from '@/views/table/table'
 export default new Router({
   routes: [
     {
+      path: '/login',
+      name: 'Login',
+      component: () => import('@/views/login/index')
+    },
+    {
       path: '/table',
       component: Layout,
       redirect: '/table',
