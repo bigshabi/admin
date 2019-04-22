@@ -1,15 +1,15 @@
 <template>
   <div class="app-wrapper">
-    <el-container style="height:100%">
+    <!-- <el-container style="height:100%">
       <el-header style="height:50px">
         <div class="navbar">
           navbar
         </div>
         <div class="tags-view-container"></div>
       </el-header>
-      <el-container>
+      <el-container> -->
         <!--aside-->
-        <Aside />
+        <!-- <Aside />
 
         <el-container>
           <TagsView />
@@ -18,6 +18,29 @@
           </el-main>
           <el-footer>Footer</el-footer>
         </el-container>
+      </el-container>
+    </el-container> -->
+
+    <el-container style="height:100%">
+      <el-aside width="200px">
+        <el-row>
+          <el-col style="height:50px;"><div>管理系统</div></el-col>
+        </el-row>
+        <Aside />
+      </el-aside>
+      <el-container>
+        <el-header height="50px">
+          <div class="navbar">
+            navbar
+          </div>
+          <div class="tags-view-container"></div>
+        </el-header>
+        <TagsView />
+        <el-main size="small" style="background: #f1f1f1;">
+          <!-- <TagsView /> -->
+          <router-view></router-view>
+        </el-main>
+        <el-footer>Footer</el-footer>
       </el-container>
     </el-container>
 

@@ -13,7 +13,7 @@
             </el-tab-pane>
         </el-tabs> -->
 
-        <el-tabs @tab-click="clickTab" type="card" v-model="tagsViewIndex" :closable="tagsView.length==1?false:true" @tab-remove="removeTab">
+        <el-tabs @tab-click="clickTab" style="paddimg:5px" type="card" v-model="tagsViewIndex" :closable="tagsView.length==1?false:true" @tab-remove="removeTab">
             <el-tab-pane v-for="(item) in tagsView" :key="item.name" :label="item.title" :name="item.index" :url="item.url">
                 <Breadcrumb />
             </el-tab-pane>
@@ -39,7 +39,7 @@ export default {
   methods: {
     removeTab (targetName) {
       this.$store.commit('removeTagsView', {index: targetName})
-      // this.$store.commit('resetBreadcrumb')
+      this.$store.commit('resetBreadcrumb')
     },
     clickTab: function (event) {
       this.$store.commit('resetBreadcrumb', {index: event.name})
@@ -68,6 +68,6 @@ export default {
     margin-bottom: auto
 }
 .el-tabs__content {
-    padding: 15px
+    padding: 8px
 }
 </style>

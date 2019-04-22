@@ -33,6 +33,28 @@ export default new Router({
           meta: { title: 'table' }
         }
       ]
-    }
+    },
+    {
+      path: '/form',
+      component: Layout,
+      name: 'Form',
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/form/index')
+        }
+      ]
+    }// ,
+    // {
+    //   path: '/users',
+    //   component: Layout,
+    //   name: 'Name',
+    //   children: [
+    //     {
+    //       path: 'lists',
+    //       component: () => import('@/view/users/lists')
+    //     }
+    //   ]
+    // }
   ]
 })

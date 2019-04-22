@@ -23,6 +23,26 @@ const store = new Vuex.Store({
             url: '/table/table1'
           }
         ]
+      },
+      {
+        name: 'Table',
+        icon: 'el-icon-tickets',
+        child: [
+          {
+            name: 'Table',
+            url: '/table/table'
+          }
+        ]
+      },
+      {
+        name: 'Form',
+        icon: 'el-icon-document',
+        child: [
+          {
+            name: 'Form',
+            url: '/form/index'
+          }
+        ]
       }
     ],
     breadcrumb: []
@@ -92,8 +112,8 @@ const store = new Vuex.Store({
     resetBreadcrumb (state, view) {
       let arr = view.index.split('-')
       state.breadcrumb = [
-        {name: state.sidebar[arr[0]].name},
-        {name: state.sidebar[arr[0]].child[arr[1]].name}
+        {name: state.sidebar[arr[0]].name, id: 1},
+        {name: state.sidebar[arr[0]].child[arr[1]].name, id: 2}
       ]
     },
     resetTagsViewUrl (state, view) {
