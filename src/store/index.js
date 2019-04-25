@@ -18,10 +18,11 @@ const store = new Vuex.Store({
           {
             name: '用户列表',
             url: '/table/table'
-          }, {
-            name: '用户列表1',
-            url: '/table/table1'
           }
+          // {
+          //   name: '用户列表1',
+          //   url: '/table/table1'
+          // }
         ]
       },
       {
@@ -30,7 +31,7 @@ const store = new Vuex.Store({
         child: [
           {
             name: 'Table',
-            url: '/table/table'
+            url: '/table/index'
           }
         ]
       },

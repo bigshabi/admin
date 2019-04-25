@@ -31,6 +31,14 @@ export default new Router({
           component: () => import('@/views/table/table1'),
           name: 'table',
           meta: { title: 'table' }
+        }, {
+          path: 'index',
+          name: 'tmp',
+          component: () => import('@/views/table/index')
+        }, {
+          path: '*',
+          name: 'index',
+          component: () => import('@/views/table/tmp')
         }
       ]
     },
