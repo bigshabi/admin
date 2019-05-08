@@ -52,7 +52,19 @@ export default new Router({
           component: () => import('@/views/form/index')
         }
       ]
-    }// ,
+    },
+    {
+      path: '/users',
+      component: Layout,
+      name: 'Users',
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/users/index')
+        }
+      ]
+    }
+    // ,
     // {
     //   path: '/users',
     //   component: Layout,

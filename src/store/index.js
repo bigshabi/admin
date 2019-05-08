@@ -44,6 +44,16 @@ const store = new Vuex.Store({
             url: '/form/index'
           }
         ]
+      },
+      {
+        name: 'Users',
+        icon: 'el-icon-tickets',
+        child: [
+          {
+            name: 'lists',
+            url: '/users/index'
+          }
+        ]
       }
     ],
     breadcrumb: []
