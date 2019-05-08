@@ -66,11 +66,18 @@ export default {
   props: ['param'],
   mounted: function () {
     console.info('add')
+    this.ruleForm.name = this.param.id
+  },
+  created: function () {
+    console.info('created')
   },
   methods: {
     test: function (id) {
-      console.info('add')
-      this.param.id = id
+      console.info('add2')
+      console.info(id)
+      console.info(this.param.id = id)
+      console.info(this.ruleForm.name + 'a')
+      console.info(this.param.id + 'b')
     },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {

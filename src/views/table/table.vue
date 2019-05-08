@@ -26,7 +26,7 @@
         <el-table-column prop="id" label="ID" width="80" sortable="custom"> </el-table-column>
         <el-table-column prop="name" label="名称"></el-table-column>
         <el-table-column prop="address" label="地址"></el-table-column>
-        <el-table-column prop="date" label="时间" width="200" sortable="custom"> </el-table-column>
+        <el-table-column prop="date" label="时间" width="120" sortable="custom"> </el-table-column>
         <el-table-column label="状态" width="80">
             <template slot-scope="scope">
                 <el-tag size="medium" v-if="scope.row.state===1">{{state[scope.row.state]}}</el-tag>
@@ -60,8 +60,14 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Table',
+  mounted: function () {
+    axios.get('./static/data/table.json').then((res) => {
+      this.tableData = res.data
+    })
+  },
   methods: {
     handleClick (row) {
       console.log(row)
@@ -70,11 +76,13 @@ export default {
       console.info(e)
     },
     add: function () {
+      let tmp = this.number++
+      console.info(tmp)
       this.$emit('watch-child', {
         title: '新增',
         child: 'add',
         param: {
-          id: this.number++
+          id: tmp
         }
       })
     }
@@ -109,39 +117,7 @@ export default {
         4: '已过期'
       },
       selectValue: '',
-      tableData: [{
-        id: 1,
-        mobile: '13000000000',
-        date: '2016-05-02',
-        name: '王小虎',
-        state: 1,
-        banned: 1,
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        id: 2,
-        mobile: '13000000000',
-        date: '2016-05-04',
-        name: '王小虎',
-        state: 2,
-        banned: 1,
-        address: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        id: 3,
-        mobile: '13000000000',
-        date: '2016-05-01',
-        name: '王小虎',
-        state: 3,
-        banned: 2,
-        address: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        id: 4,
-        mobile: '13000000000',
-        date: '2016-05-03',
-        name: '王小虎',
-        state: 4,
-        banned: 2,
-        address: '上海市普陀区金沙江路 1516 弄'
-      }]
+      tableData: []
     }
   }
 }
