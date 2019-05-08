@@ -1,21 +1,16 @@
 <template>
     <section class="app-main">
-        abc{{param.id}}
+        def{{param.id}}
     </section>
 </template>
 
 <script>
 
 export default {
-  name: 'abc',
+  name: 'def',
   props: ['param'],
   mounted: function () {
-    console.info('abc')
-  },
-  methods: {
-    test: function () {
-      console.info('abc-test')
-    }
+    console.info('def')
   }
 }
 </script>

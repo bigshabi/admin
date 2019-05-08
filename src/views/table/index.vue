@@ -45,21 +45,23 @@ export default {
     },
     removeTab (targetName) {
       console.info(targetName)
-      let tabs = this.editableTabs
-      let activeName = this.editableTabsValue
+      let tabs = this.tableTabs
+      let activeName = this.tableTabsValue
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
           if (tab.name === targetName) {
             let nextTab = tabs[index + 1] || tabs[index - 1]
+            console.info(nextTab)
             if (nextTab) {
+              console.info(nextTab.name)
               activeName = nextTab.name
             }
           }
         })
       }
 
-      this.editableTabsValue = activeName
-      this.editableTabs = tabs.filter(tab => tab.name !== targetName)
+      this.tableTabsValue = activeName
+      this.tableTabs = tabs.filter(tab => tab.name !== targetName)
     }
   },
   data () {
