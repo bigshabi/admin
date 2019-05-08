@@ -60,12 +60,13 @@
 </template>
 
 <script>
-import axios from 'axios'
+import request from '@/utils/request.js'
+
 export default {
   name: 'Table',
   mounted: function () {
-    axios.get('./static/data/table.json').then((res) => {
-      this.tableData = res.data
+    request.get('./static/data/table.json', {}, (res) => {
+      this.tableData = res
     })
   },
   methods: {
