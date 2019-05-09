@@ -44,12 +44,11 @@ export default {
       }
     },
     removeTab (targetName) {
-      console.info('targetName')
       let tabs = this.tableTabs
       let activeName = this.tableTabsValue
       if (activeName === targetName) {
         tabs.forEach((tab, index) => {
-          if (tab.name === targetName) {
+          if (tab.title === targetName) {
             let nextTab = tabs[index + 1] || tabs[index - 1]
             if (nextTab) {
               activeName = nextTab.name
@@ -58,10 +57,10 @@ export default {
         })
       }
 
-      console.info(tabs)
-      console.info(targetName)
+      // this.tableTabsValue = activeName
       this.tableTabsValue = '1'
-      this.tableTabs = tabs.filter(tab => tab.name !== targetName)
+      // this.tableTabs = tabs.filter(tab => tab.name !== targetName)
+      this.tableTabs = tabs.filter(tab => tab.title !== targetName)
     }
   },
   data () {

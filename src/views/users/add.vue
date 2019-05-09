@@ -71,11 +71,7 @@ export default {
   },
   methods: {
     test: function (id) {
-      console.info('add2')
-      console.info(id)
-      console.info(this.param.id = id)
-      console.info(this.ruleForm.name + 'a')
-      console.info(this.param.id + 'b')
+      this.ruleForm.name = id
     },
     submitForm (formName) {
       this.$refs[formName].validate((valid) => {
