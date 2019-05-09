@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
 
-    <el-row style="min-height:50px;background:#fff;margin:6px 0;">
+    <el-row style="min-height:50px;background:#fff;margin:6px 0;text-align:initial">
         <el-col>
             <el-card class="box-card">
                 <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">

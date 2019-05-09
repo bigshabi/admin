@@ -22,15 +22,11 @@
     </el-container> -->
 
     <el-container style="height:100%">
-      <el-aside width="200px">
-        <el-row>
-          <el-col style="height:50px;"><div>管理系统</div></el-col>
-        </el-row>
-        <Aside />
-      </el-aside>
+      <Aside ref="aside" />
       <el-container>
         <el-header height="50px">
           <div class="navbar">
+            <i class="el-icon-setting"></i>
             navbar
           </div>
           <div class="tags-view-container"></div>
@@ -40,7 +36,7 @@
           <!-- <TagsView /> -->
           <router-view></router-view>
         </el-main>
-        <el-footer>Footer</el-footer>
+        <!-- <el-footer>Footer</el-footer> -->
       </el-container>
     </el-container>
 
@@ -66,6 +62,11 @@ export default {
   },
   mounted () {
     console.info(88)
+  },
+  methods: {
+    collapse: function () {
+      this.$refs['aside'].collapse()
+    }
   }
 }
 </script>

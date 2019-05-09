@@ -1,8 +1,15 @@
 <template>
-    <el-aside width="200px">
+    <el-aside style="max-width:200px;width:auto">
+        <el-row>
+          <el-col style="height:50px;"><div>管理系统</div></el-col>
+        </el-row>
         <el-row class="tac">
             <el-col :span="24">
-                <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect"
+                <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+                  <el-radio-button :label="false">展开</el-radio-button>
+                  <el-radio-button :label="true">收起</el-radio-button>
+                </el-radio-group> -->
+                <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect" :collapse="isCollapse"
                 background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :unique-opened="true" router>
 
                     <el-submenu v-for="(item, key) in sidebar" :key="key" :index="item.name">
@@ -14,6 +21,7 @@
                     </el-submenu>
 
                 </el-menu>
+
             </el-col>
         </el-row>
     </el-aside>
@@ -33,12 +41,42 @@ export default {
     handleSelect (index) {
       this.$store.commit('addTagsView', {index: index})
       this.$store.commit('resetBreadcrumb', {index: index})
+    },
+    collapse () {
+      this.isCollapse = this.isCollapse ? false : true
     }
   },
   computed: {
     sidebar () {
       return this.$store.state.sidebar
     }
+  },
+  data () {
+    return {
+      isCollapse: false
+    }
   }
 }
 </script>
+<style>
+.el-aside::-webkit-scrollbar {
+  width: 10px;
+  height: 1px;
+}
+.el-aside::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2); */
+  background: #555555;
+}
+/* .el-aside::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  background: #EDEDED;
+} */
+</style>
+<style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+</style>

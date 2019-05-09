@@ -43,15 +43,15 @@
         <el-table-column label="操作" width="200">
             <template slot-scope="scope">
             <el-button size="mini" @click="edit(scope.row.id)">编辑</el-button>
-            <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+            <el-button size="mini" type="danger" @click="deleteData(scope.row.id)">删除</el-button>
             </template>
         </el-table-column>
     </el-table>
 
     <el-row style="min-height:50px;background:#fff;margin:20px auto;">
         <el-col class="pages ta-r">
-        <el-pagination background layout="total, prev, pager, next" :total="1000">
-        </el-pagination>
+            <el-pagination background layout="total, prev, pager, next" :total="1000" :page-size="10" :current-page="2" class="element-pagination" @current-change="pages">
+            </el-pagination>
         </el-col>
     </el-row>
 
@@ -93,6 +93,26 @@ export default {
           id: id
         }
       })
+    },
+    deleteData: function (id) {
+      console.info(id)
+      this.$confirm('确认要删除吗？', '提示', {
+        type: 'warning',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消'
+      }).then((e) => {
+        this.$message({
+          message: '删除成功！',
+          type: 'success',
+          duration: 1000,
+          onClose: () => {
+            console.info('删除成功！')
+          }
+        })
+      }).catch(() => {})
+    },
+    pages: function (param) {
+      console.info(param)
     }
   },
   data () {
