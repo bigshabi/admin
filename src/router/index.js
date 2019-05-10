@@ -36,6 +36,14 @@ export default new Router({
           name: 'tmp',
           component: () => import('@/views/table/index')
         }, {
+          path: 'lists',
+          name: 'lists',
+          component: () => import('@/views/table/lists')
+        }, {
+          path: 'form',
+          name: 'form',
+          component: () => import('@/views/table/form')
+        }, {
           path: '*',
           name: 'index',
           component: () => import('@/views/table/tmp')

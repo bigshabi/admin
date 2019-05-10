@@ -5,10 +5,7 @@
         </el-row>
         <el-row class="tac">
             <el-col :span="24">
-                <!-- <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-                  <el-radio-button :label="false">展开</el-radio-button>
-                  <el-radio-button :label="true">收起</el-radio-button>
-                </el-radio-group> -->
+
                 <el-menu class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" @select="handleSelect" :collapse="isCollapse"
                 background-color="#545c64" text-color="#fff" active-text-color="#ffd04b" :unique-opened="true" router>
 
@@ -43,7 +40,11 @@ export default {
       this.$store.commit('resetBreadcrumb', {index: index})
     },
     collapse () {
-      this.isCollapse = this.isCollapse ? false : true
+      if (this.isCollapse) {
+        this.isCollapse = false
+      } else {
+        this.isCollapse = true
+      }
     }
   },
   computed: {

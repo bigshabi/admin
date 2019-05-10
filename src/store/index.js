@@ -52,6 +52,10 @@ const store = new Vuex.Store({
           {
             name: 'lists',
             url: '/users/index'
+          },
+          {
+            name: 'lists1',
+            url: '/table/lists'
           }
         ]
       }

@@ -26,7 +26,7 @@
       <el-container>
         <el-header height="50px">
           <div class="navbar">
-            <i class="el-icon-setting"></i>
+            <i class="el-icon-setting" @click="collapse"></i>
             navbar
           </div>
           <div class="tags-view-container"></div>
