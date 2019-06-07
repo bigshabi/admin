@@ -58,6 +58,16 @@ const store = new Vuex.Store({
             url: '/table/lists'
           }
         ]
+      },
+      {
+        name: '表格',
+        icon: 'el-icon-tickets',
+        child: [
+          {
+            name: '表格1',
+            url: '/tables/index'
+          }
+        ]
       }
     ],
     breadcrumb: []

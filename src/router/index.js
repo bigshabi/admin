@@ -71,6 +71,17 @@ export default new Router({
           component: () => import('@/views/users/index')
         }
       ]
+    },
+    {
+      path: '/tables',
+      name: 'Tables',
+      component: Layout,
+      children: [
+        {
+          path: 'index',
+          component: () => import('@/views/tables/index')
+        }
+      ]
     }
     // ,
     // {
